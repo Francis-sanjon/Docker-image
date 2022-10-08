@@ -10,6 +10,10 @@ COPY ./cypress.config.js .
 COPY ./cypress ./cypress
 #Install the cypress dependencies in the work directory
 RUN npm install
+RUN npm install -D @badeball/cypress-cucumber-preprocessor
+RUN npm install -D @bahmutov/cypress-esbuild-preprocessor
+RUN npm install -D @esbuild-plugins/node-modules-polyfill
+
 #Executable commands the container will use[Exec Form]
 ENTRYPOINT ["npx","cypress","run"]
 #With CMD in this case, we can specify more parameters to the last entrypoint.
